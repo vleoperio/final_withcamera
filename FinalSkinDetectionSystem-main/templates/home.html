@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SKIN DETECTION HOME</title>
+        <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'css/favicon.ico')}}"/>
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+    </head>
+    
+    <body id="page-top">
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="#page-top"><img src="{{ url_for('static', filename='css/navbar-logo.svg') }}"alt="..." /></a>
+                <div id="ue">Skin Disease Detection System</div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ms-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('home')}}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for ('index')}}">Application</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for ('about')}}">About Us</a></li>  
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <header class="masthead">
+            <div class="container">
+                <div class="masthead-subheading">Welcome to Skin Detection System</div>
+                <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+                <a class="btn btn-primary btn-xl text-uppercase" href="#services">Home Page</a>
+            </div>
+        </header>
+        
+        <section class="page-section" id="services">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">What is a Skin Disease?</h2>
+                    <h3 class="section-subheading text-muted"><b>Skin diseases</b> are conditions that affect your skin. These diseases may cause rashes, inflammation, itchiness or other skin changes. Some skin conditions may be genetic, while lifestyle factors may cause others. Skin disease treatment may include medications, creams or ointments, or lifestyle changes.</h3>
+                </div>
+                <br><br><br>
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">How can you prevent skin disease?</h2>
+                </div>
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-solid fa-umbrella-beach fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">PROTECT YOUR SKIN FROM THE SUN</h4>
+                        <p class="text-muted">One of the most important ways to prevent skin diseases is to protect your skin from the harmful effects of the sun by wearing sunscreen with a high SPF, seeking shade during peak sun hours, and wearing protective clothing like hats and sunglasses to reduce the risk of skin cancer and premature aging. Taking these precautions can also help prevent sunburns, sun damage, and the development of wrinkles over time.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-solid fa-apple-whole fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">MAKE SURE TO MAINTAIN A HEALTHY DIET</h4>
+                        <p class="text-muted">Eating a balanced diet rich in fruits, vegetables, and whole grains can help keep your skin healthy as foods high in antioxidants and vitamins can help protect your skin from damage, promote overall skin health, and improve skin conditions such as acne and eczema. Additionally, staying hydrated by drinking plenty of water can also contribute to healthy skin by keeping it well-hydrated and plump.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="fa-stack fa-4x">
+                            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa-solid fa-soap fa-stack-1x fa-inverse"></i>
+                        </span>
+                        <h4 class="my-3">PRACTICE A GOOD HYGIENE </h4>
+                        <p class="text-muted">Keeping your skin clean and moisturized is essential for preventing skin diseases. Regularly washing your skin with a gentle cleanser, moisturizing daily, and avoiding harsh chemicals can help maintain the health of your skin. Wash scrapes, cuts, wounds, or insect bites right away. Do not share items, such as towels, razors, bar soap, clothes, or toys. Avoid skin-to-skin contact with anyone who has a skin infection.</p>
+                    </div>
+                </div>      
+            </div>
+            <br><br>
+            <div class="container">
+                <div class="text-center">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa-solid fa-user-doctor fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <br><br>
+                    <h2 class="section-heading text-uppercase">Who can you contact if you have a skin disease?</h2>
+                    <br>
+                    <h3 class="section-subheading text-muted">If you have a skin disease, you can contact a <b>DERMATOLOGIST</b>. Dermatologists are medical doctors who specialize in diagnosing and treating conditions related to the skin, hair, and nails. They can provide you with a proper diagnosis and recommend a treatment plan to help manage your skin disease. You can ask your primary care physician for a referral to a dermatologist, or you can search for one in your area online.</h3>
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">our system focuses on the detection of </h2>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Software Development-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{url_for('static', filename='css/acnee.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">ACNE</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="text-center">
+                            <br><br><br><br>
+                            <h1 class="section-heading text-uppercase">or</h1>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <!-- Robotics and Embedded -->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for ('static', filename ='css/eczema.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">ECZEMA</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="text-center">
+                            <br><br>
+                            <h2 class="section-heading text-uppercase">why acne and eczema?</h2>
+                            <br>
+                            <h3 class="section-subheading text-muted">Skin diseases such as eczema and acne have become critical issues in today's world due to a lack of confidence in people who have these skin conditions. Skin conditions such as atopic dermatitis (AD) commonly known as eczema, and acne often have a substantial psychological, social, and health impact on people who experience and are diagnosed with it. The skin is a complex and ever-changing ecosystem where various microorganisms such as bacteria, fungi, viruses, and mites inhabit not just the outer surface but also the underlying layers of the skin. Atopic dermatitis is a widespread and persistent condition, affecting approximately 230 million people globally, making it a common health issue (Lavadia et al., 2021). A total of 70,584 individuals were examined, with an average age of 4.2 years standard deviation of 4.76 at the time of their initial AD diagnosis.
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="container">
+                        
+                    </div>
+                    <br><br><br>
+                    <div class="text-center">
+                        <br><br>
+                        <h2 class="section-heading text-uppercase">Other skin diseases</h2>
+                    </div>
+                    <br>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <br>
+                        <!-- Computer Networks-->
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" src="{{ url_for ('static', filename='css/skindd.jpg')}}" alt="..." />
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">OTHER....</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Visit our websiteS</h2>
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-4 text-lg-start">Copyright &copy; University of the East BSCpE 2022</div>
+                            <div class="col-lg-4 my-3 my-lg-0">
+                                <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/scpesofficial" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/uescpes" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-dark btn-social mx-2" href="https://www.ue.edu.ph/mla/computer/" aria-label="LinkedIn"><i class="fab fa-google"></i></a>
+                            </div>
+                            <div class="col-lg-4 text-lg-end">
+                                <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                                <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer py-4">
+             <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-4 text-lg-start">Copyright &copy; Campillos, Dionisio, Guardo, and Leoperio 2024</div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Pop Ups-->
+        <!-- ACNE popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='css/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <h2 class="text-uppercase">ACNE</h2>
+                                    <p>Acne is a common skin condition that occurs when hair follicles become clogged with oil and dead skin cells. This can lead to the formation of pimples, blackheads, and whiteheads on the skin, particularly on the face, neck, chest, and back. Acne can be influenced by factors such as hormones, genetics, and certain medications. Treatment for acne may include topical creams, oral medications, and lifestyle changes such as proper skincare routines and a healthy diet. It is important for individuals with acne to consult with a dermatologist to determine the most effective treatment plan for their specific condition.</p>                        
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <!-- ECZEMA popup-->
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='css/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <h2 class="text-uppercase">ECZEMA</h2>
+                                    <p>Eczema, also known as atopic dermatitis, is a chronic skin condition characterized by inflammation, redness, and itching. It can vary in severity, with symptoms ranging from mild to severe. Eczema often appears in patches on the skin and can be triggered by various factors such as allergens, irritants, and stress. While there is no cure for eczema, it can be managed with proper skincare, lifestyle changes, and sometimes medication. It is important for individuals with eczema to work closely with a healthcare provider to develop a treatment plan that works best for them.</p>                           
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    
+
+        <!-- Skin D pop-up -->
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-bs-dismiss="modal"><img src="{{ url_for('static', filename='css/close-icon.svg') }}" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <h2 class="text-uppercase">Other Skin Diseases</h2>
+                                    <h6>Hover to see the meaning of each career path displayed.</h6>                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"> 
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for('static',  filename='css/psori.jpg') }}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Psoriasis</div>
+                                    <p class="image__description">
+                                        Psoriasis is a chronic autoimmune skin condition that causes the rapid growth of skin cells, leading to the formation of thick, red, scaly patches on the skin. These patches, known as plaques, can be itchy, painful, and sometimes even bleed or crack. Psoriasis can occur anywhere on the body, but is most commonly found on the elbows, knees, scalp, and lower back.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="image__img"  src="{{ url_for('static', filename='css/shing.jpg') }}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Shingles</div>
+                                    <p class="image__description">
+                                        Shingles, also known as herpes zoster, is a viral infection caused by the varicella-zoster virus, the same virus that causes chickenpox. After a person recovers from chickenpox, the virus can remain dormant in the body and reactivate later in life, causing shingles. Shingles is characterized by a painful, blistering rash that typically appears on one side of the body, often in a band or cluster pattern.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static', filename ='css/hive.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Hives</div>
+                                    <p class="image__description">
+                                        Hives, also known as urticaria, is a common skin condition characterized by raised, red, itchy welts on the skin. Hives can vary in size and shape and may come and go over a period of hours or days. They are usually caused by an allergic reaction to certain foods, medications, insect bites, or environmental triggers. Stress, infections, and autoimmune conditions can also trigger hives.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row"> 
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static', filename ='css/meas.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Measles</div>
+                                    <p class="image__description">
+                                        Measles is a highly contagious viral infection caused by the measles virus. It is characterized by a red, blotchy rash that typically starts on the face and then spreads to the rest of the body. Other symptoms may include fever, cough, runny nose, and red, watery eyes. Measles can be a serious illness, especially in young children, pregnant women, and people with weakened immune systems. 
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static',  filename ='css/chick.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Chicken Pox</div>
+                                    <p class="image__description">
+                                        Chickenpox is a highly contagious viral infection caused by the varicella-zoster virus. It is characterized by a red, itchy rash that usually starts on the face, chest, and back and then spreads to the rest of the body. Other symptoms may include fever, headache, and fatigue.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static', filename ='css/wart.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Warts</div>
+                                    <p class="image__description">
+                                        Warts are benign (noncancerous) growths that can develop on your skin and mucosa (like inside your mouth). The human papillomavirus (HPV) causes warts. There are over 100 subtypes (strains) of HPV, but only a few types can cause warts on certain parts of your body.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row"> 
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static', filename ='css/ring.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">RingWorm</div>
+                                    <p class="image__description">
+                                        Ringworm is a contagious fungal infection caused by common mold-like parasites that live on the cells in the outer layer of your skin. It can be spread in the following ways: Human to human. Ringworm often spreads by direct, skin-to-skin contact with an infected person.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static', filename ='css/colds.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Cold Sore</div>
+                                    <p class="image__description">
+                                        Cold sores are caused by certain strains of the herpes simplex virus (HSV). HSV-1 usually causes cold sores. HSV-2 is often the cause of genital herpes. But either type can spread to the face or genitals through close contact, such as kissing or oral sex.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="image">
+                                <img class="image__img" src="{{ url_for ('static', filename ='css/scab.jpg')}}" alt="net">
+                                <div class="image__overlay image__overlay--primary">
+                                    <div class="image__title">Scabies</div>
+                                    <p class="image__description">
+                                        Scabies is a parasitic infestation caused by tiny mites that burrow into the skin and lay eggs, causing intense itching and a rash. Scabies can lead to skin sores and serious complications like septicaemia (a bloodstream infection), heart disease and kidney problems. It is treated using creams or oral medications.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">                              
+                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                        <i class="fas fa-xmark me-1"></i>
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{ url_for('static', filename='css/scripts.js') }}"></script>
+    </body>
+</html>

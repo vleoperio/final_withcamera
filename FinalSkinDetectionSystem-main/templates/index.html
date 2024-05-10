@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>SKIN DETECTION APPLICATION</title>
+
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename = 'css/favicon.ico')}}" />
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+
+<body id="page-top">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="{{ url_for('static', filename='css/navbar-logo.svg') }}" alt="..." /></a>
+            <div id="ue">Skin Disease Detection System</div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('home')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for('index')}}">Application</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url_for ('about')}}">About Us</a></li>  
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading">Welcome to Skin Detection System</div>
+            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Application Page</a>
+        </div>
+    </header>
+
+    <section class="page-section" id="services">
+        <video id="video" autoplay></video>
+        <canvas id="canvas" style="display: none;"></canvas>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <button id="openCamera" class="btn btn-primary">Open Camera</button>
+            <button id="capture" class="btn btn-primary">Capture</button>
+        </div>
+        <a id="downloadLink" class="btn btn-primary mt-3" style="display: none;">Download Image</a>
+
+        <form class="p-3 text-center" action='/', method="post" enctype="multipart/form-data">
+            <input class="form-control" type="file" name="imagefile" >
+            <input class="btn btn-primary mt-3" type="submit" value="Predict Image">
+        </form>
+
+        <style>
+            /* CSS to center the table */
+            table {
+                margin: 0 auto;
+            }
+        </style>
+
+        <style>
+            /* CSS to center the image */
+            .image-container {
+                text-align: center;
+            }
+            .image-container img {
+                display: inline-block;
+            }
+        </style>
+
+        <div class="center-table">
+            {% if file_path %}
+                <h3 class="text-center">Confidence Level: <span style="color: red;">{{ '{:.5f}'.format(confidence) }}%</span></h3>
+                <h2 class="text-center">Uploaded Image:</h2>
+                <div class="image-container">
+                    <img src="{{ file_path }}" alt="Uploaded Image" width="300">
+                </div>
+            {% endif %}
+
+            {% if prediction %}
+                <h2 class="text-center"> Image is an <span style="color: red;">{{prediction}}</span></h2>
+                <table>
+                    <tr>
+                        <th>Prescription</th>
+                        <th> </th>
+                        <th>Action</th>
+                    </tr>
+                    {% for item in prescription %}
+                        <tr>
+                            <td>{{ item }}</td>
+                            <td><span style="color: white;">------------------</span></td>
+                            <td><button class="deleteBtn" onclick="deleteRow(this)">Delete</button></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div class="text-center">
+                    <button onclick="approvePrediction()" class="btn btn-primary mt-3">Approve</button>
+                    <div id="approvalSection" style="display: none;">
+                        <div class="image-container">
+                            <img src="{{ url_for('static', filename='css/greencheck.png') }}" id="checkMark">
+                            <h2 class="text-center">Dermatologist Approved</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3"><a class="nav-link" href="{{ url_for('index')}}"><span style="color: white;">Reload</span></a></button>
+                </div>
+            {% endif %}
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <script>
+            function deleteRow(btn) {
+                var row = btn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+
+            function approvePrediction() {
+                var approvalSection = document.getElementById("approvalSection");
+                approvalSection.style.display = "block";
+
+                var deleteButtons = document.getElementsByClassName("deleteBtn");
+                for (var i = 0; i < deleteButtons.length; i++) {
+                    deleteButtons[i].innerHTML = "Approved";
+                    deleteButtons[i].classList.add("correct-button");
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const video = document.getElementById('video');
+                const canvas = document.getElementById('canvas');
+                const context = canvas.getContext('2d');
+                const openCameraButton = document.getElementById('openCamera');
+                const captureButton = document.getElementById('capture');
+                const downloadLink = document.getElementById('downloadLink');
+        
+                let mediaStream;
+        
+                // Function to open the camera
+                openCameraButton.addEventListener('click', function() {
+                    if (!mediaStream) {
+                        navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function(stream) {
+                            video.srcObject = stream;
+                            mediaStream = stream;
+                        })
+                        .catch(function(error) {
+                            console.error('Error accessing the camera: ', error);
+                        });
+                    }
+                });
+        
+                // Function to capture image
+                captureButton.addEventListener('click', function() {
+                    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    downloadLink.href = canvas.toDataURL('image/png');
+                    downloadLink.download = 'captured_image.png';
+                    downloadLink.style.display = 'block';
+                });
+            });
+        </script>
+    </section>
+
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Visit our websiteS</h2>
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 text-lg-start">Copyright &copy; University of the East BSCpE 2022</div>
+                        <div class="col-lg-4 my-3 my-lg-0">
+                            <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/scpesofficial" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/uescpes" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.ue.edu.ph/mla/computer/" aria-label="LinkedIn"><i class="fab fa-google"></i></a>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                            <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <footer class="footer py-4">
+         <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; Campillos, Dionisio, Guardo and Leoperio 2024</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='css/scripts.js') }}"></script>
+</body>
+</html>
